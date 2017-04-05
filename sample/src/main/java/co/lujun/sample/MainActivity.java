@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -129,34 +128,34 @@ public class MainActivity extends AppCompatActivity {
         // After you set your own attributes for TagView, then set tag(s) or add tag(s)
 
         //从网络加载的情况
-        Bitmap bitmap = null;
-        try {
-            bitmap = getImage("");
-        } catch (Exception e) {
-            e.printStackTrace();
-    }
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        // 设置想要的大小
-        int newWidth = 144;
-        int newHeight = 144;
-        // 计算缩放比例
-        float scaleWidth = ((float) newWidth) / width;
-        float scaleHeight = ((float) newHeight) / height;
-        Matrix matrix = new Matrix();
-        matrix.postScale(scaleWidth, scaleHeight);
-        Bitmap mbitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+//        Bitmap bitmap = null;
+//        try {
+//            bitmap = getImage("");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//    }
+//        int width = bitmap.getWidth();
+//        int height = bitmap.getHeight();
+//        // 设置想要的大小
+//        int newWidth = 144;
+//        int newHeight = 144;
+//        // 计算缩放比例
+//        float scaleWidth = ((float) newWidth) / width;
+//        float scaleHeight = ((float) newHeight) / height;
+//        Matrix matrix = new Matrix();
+//        matrix.postScale(scaleWidth, scaleHeight);
+//        Bitmap mbitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
 
 
         //本地图片的情况
-//        BitmapFactory.Options options = new BitmapFactory.Options();
-//        options.inSampleSize = 72 / dip2px(this, 10);
-//        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.black, options);
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 72 / dip2px(this, 10);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.black, options);
 
 
         //View.TEXT_DIRECTION_LTR:文字在左边
-        mTagContainerLayout1.addTag("我是标签", mbitmap, View.TEXT_DIRECTION_LTR);
-        mTagContainerLayout1.addTag("我是标签2", mbitmap,View.TEXT_DIRECTION_RTL);
+        mTagContainerLayout1.addTag("我是标签", bitmap, View.TEXT_DIRECTION_LTR);
+        mTagContainerLayout1.addTag("我是标签2", bitmap,View.TEXT_DIRECTION_RTL);
 
         mTagContainerLayout2.setTags(list2);
         mTagContainerLayout3.setTags(list3);

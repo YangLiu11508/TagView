@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.black, options);
 
 
-        //View.TEXT_DIRECTION_LTR:文字在左边
+        //View.TEXT_DIRECTION_LTR:文字在左边.    View.TEXT_DIRECTION_RTL:文字在右边
         mTagContainerLayout1.addTag("我是标签", bitmap, View.TEXT_DIRECTION_LTR);
         mTagContainerLayout1.addTag("我是标签2", bitmap,View.TEXT_DIRECTION_RTL);
 

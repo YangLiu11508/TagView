@@ -688,6 +688,12 @@ public class TagContainerLayout extends ViewGroup {
         postInvalidate();
     }
 
+    /**
+     * 动态添加标签
+     * @param text   标签的文字
+     * @param bitmap 标签中的图片
+     * @param tagTextDirection  图片相对于文字的方向
+     */
     public void addTag(String text, Bitmap bitmap,int tagTextDirection){
         onAddTag(text, bitmap,tagTextDirection,mChildViews.size());
         postInvalidate();
